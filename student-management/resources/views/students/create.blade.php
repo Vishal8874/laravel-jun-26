@@ -74,6 +74,50 @@
 
     </div>
 
+    <div class="mb-3">
+
+        <label>Course</label>
+
+        <input
+            type="text"
+            name="course"
+            class="form-control"
+            value="{{ old('course') }}"
+        >
+        @error('course')
+
+    <div class="text-danger">
+
+        {{ $message }}
+
+    </div>
+
+@enderror
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>City</label>
+
+        <input
+            type="text"
+            name="city"
+            class="form-control"
+            value="{{ old('city') }}"
+        >
+        @error('city')
+
+    <div class="text-danger">
+
+        {{ $message }}
+
+    </div>
+
+@enderror
+
+    </div>
+
     <button
         type="submit"
         class="btn btn-primary"

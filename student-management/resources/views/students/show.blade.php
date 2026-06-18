@@ -29,28 +29,13 @@
                 </p>
 
                 <p>
-                    <strong>Phone:</strong>
-                    {{ $student['phone'] }}
-                </p>
-
-                <p>
                     <strong>Age:</strong>
                     {{ $student['age'] }}
                 </p>
 
                 <p>
-                    <strong>Gender:</strong>
-                    {{ $student['gender'] }}
-                </p>
-
-                <p>
                     <strong>Course:</strong>
                     {{ $student['course'] }}
-                </p>
-
-                <p>
-                    <strong>Semester:</strong>
-                    {{ $student['semester'] }}
                 </p>
 
                 <p>
