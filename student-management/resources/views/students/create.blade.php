@@ -1,131 +1,91 @@
 @extends('layouts.app')
 
 @section('content')
+    <h1>Add Student</h1>
 
-<h1>Add Student</h1>
+    <form action="/add-student" method="POST">
 
-<form action="/add-student" method="POST">
+        @csrf
 
-    @csrf
+        <div class="mb-3">
 
-    <div class="mb-3">
+            <label>Name</label>
 
-        <label>Name</label>
+            <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+            @error('name')
+                <div class="text-danger">
 
-        <input
-            type="text"
-            name="name"
-            class="form-control"
-            value="{{ old('name') }}"
-        >
-        @error('name')
+                    {{ $message }}
 
-    <div class="text-danger">
+                </div>
+            @enderror
 
-        {{ $message }}
+        </div>
 
-    </div>
+        <div class="mb-3">
 
-@enderror
+            <label>Email</label>
 
-    </div>
+            <input type="email" name="email" class="form-control" value="{{ old('email') }}">
+            @error('email')
+                <div class="text-danger">
 
-    <div class="mb-3">
+                    {{ $message }}
 
-        <label>Email</label>
+                </div>
+            @enderror
 
-        <input
-            type="email"
-            name="email"
-            class="form-control"
-            value="{{ old('email') }}"
-        >
-        @error('email')
+        </div>
 
-    <div class="text-danger">
+        <div class="mb-3">
 
-        {{ $message }}
+            <label>Age</label>
 
-    </div>
+            <input type="number" name="age" class="form-control" value="{{ old('age') }}">
+            @error('age')
+                <div class="text-danger">
 
-@enderror
+                    {{ $message }}
 
-    </div>
+                </div>
+            @enderror
 
-    <div class="mb-3">
+        </div>
 
-        <label>Age</label>
+        <div class="mb-3">
 
-        <input
-            type="number"
-            name="age"
-            class="form-control"
-            value="{{ old('age') }}"
-        >
-        @error('age')
+            <label>Course</label>
 
-    <div class="text-danger">
+            <input type="text" name="course" class="form-control" value="{{ old('course') }}">
+            @error('course')
+                <div class="text-danger">
 
-        {{ $message }}
+                    {{ $message }}
 
-    </div>
+                </div>
+            @enderror
 
-@enderror
+        </div>
 
-    </div>
+        <div class="mb-3">
 
-    <div class="mb-3">
+            <label>City</label>
 
-        <label>Course</label>
+            <input type="text" name="city" class="form-control" value="{{ old('city') }}">
+            @error('city')
+                <div class="text-danger">
 
-        <input
-            type="text"
-            name="course"
-            class="form-control"
-            value="{{ old('course') }}"
-        >
-        @error('course')
+                    {{ $message }}
 
-    <div class="text-danger">
+                </div>
+            @enderror
 
-        {{ $message }}
+        </div>
 
-    </div>
+        <button type="submit" class="btn btn-primary">
+            Submit
+        </button>
+        <a href="{{ route('students.index') }} " class="btn btn-primary">Back</a>
 
-@enderror
-
-    </div>
-
-    <div class="mb-3">
-
-        <label>City</label>
-
-        <input
-            type="text"
-            name="city"
-            class="form-control"
-            value="{{ old('city') }}"
-        >
-        @error('city')
-
-    <div class="text-danger">
-
-        {{ $message }}
-
-    </div>
-
-@enderror
-
-    </div>
-
-    <button
-        type="submit"
-        class="btn btn-primary"
-    >
-        Submit
-    </button>
-    <a href="{{route('students.index')}} " class="btn btn-primary">Back</a>
-
-</form>
-
+    </form>
 @endsection

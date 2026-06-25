@@ -10,6 +10,12 @@
 <body>
   <div class="conatainer p-5">
     <h1 class="text-center mb-4">Student List</h1>
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ session('success') }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      @endif
     <div class="table-responsive">
       <table class="table table-bordered table-striped align-middle">
         <thead class="table-light">
@@ -50,5 +56,6 @@
     </div>
 
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

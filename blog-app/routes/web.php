@@ -11,6 +11,11 @@ Route::get('/', function () {
 
 Route::get('/about',[HomeController::class, 'about']);
 
-Route::get('/student',[StudentController::class,'student']);
+Route::get('/student',[StudentController::class,'student'])->name('student.home');
 
 Route::get('/product',[ProductController::class, 'product']);
+
+
+Route::get('/student/add', [StudentController::class, 'create'])->name('student.create');
+
+Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');

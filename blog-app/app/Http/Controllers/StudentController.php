@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     //students
-    public function student(){
-        $students = [
+    private function getStudents(){
+        return [
     [
         "id" => 1,
         "name" => "Rahul Sharma",
@@ -175,6 +175,42 @@ class StudentController extends Controller
         "city" => "Kanpur"
     ]
 ];
+    }
+
+
+
+
+
+
+
+
+
+
+    
+
+    public function student(){
+        $students = $this->getStudents();
         return view('student', compact('students'));
+    }
+
+
+    public function create(){
+        return view('studentform');
+    }
+
+    public function store(Request $request){
+
+    // dd($request->all());
+
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'age' => 'required|integer|max:255',
+    ]);
+
+    return redirect()
+            ->route('student.home')
+            ->with('success', 'Student Added succefully.');
+
     }
 }
