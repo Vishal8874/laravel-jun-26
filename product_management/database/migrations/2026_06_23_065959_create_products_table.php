@@ -8,7 +8,7 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up(): void
+   public function up(): void
 {
     Schema::create('products', function (Blueprint $table) {
 
@@ -16,13 +16,26 @@ return new class extends Migration {
 
         $table->string('name');
 
+        $table->string('slug')->unique();
+
         $table->decimal('price', 10, 2);
 
         $table->text('description');
 
         $table->string('brand');
 
-        $table->integer('stock');
+        $table->string('category');
+
+        $table->integer('stock')->default(0);
+
+        $table->json('colors')->nullable();
+
+        $table->json('sizes')->nullable();
+
+        $table->enum('status', ['active', 'inactive'])
+              ->default('active');
+
+        $table->string('image')->nullable();
 
         $table->timestamps();
 

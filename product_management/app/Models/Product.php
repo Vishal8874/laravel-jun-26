@@ -8,9 +8,22 @@ class Product extends Model
 {
     protected $fillable = [
         'name',
+        'slug',
         'price',
         'description',
         'brand',
-        'stock'
+        'category',
+        'stock',
+        'colors',
+        'sizes',
+        'status',
+        'image'
+    ];
+
+    protected $casts = [
+        'price' => 'decimal:2',
+        'stock' => 'integer',
+        'colors' => 'array',
+        'sizes' => 'array'
     ];
 }
